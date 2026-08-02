@@ -1,0 +1,170 @@
+.pii-app {
+  --pii-line: var(--gray-a6);
+  --pii-panel: var(--color-panel-solid);
+  --pii-muted: var(--gray-10);
+  display: grid;
+  gap: 14px;
+  color: var(--gray-12);
+}
+
+.pii-app button,
+.pii-app textarea,
+.pii-app select { font: inherit; }
+
+.pii-app button,
+.pii-app select {
+  min-height: 36px;
+  border: 1px solid var(--pii-line);
+  border-radius: 8px;
+  color: var(--gray-12);
+  background: var(--pii-panel);
+}
+
+.pii-app button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 13px;
+  cursor: pointer;
+}
+
+.pii-app button:hover:not(:disabled) { background: var(--gray-a3); }
+.pii-app button:disabled { cursor: not-allowed; opacity: .5; }
+.pii-app button:focus-visible,
+.pii-app textarea:focus-visible,
+.pii-app select:focus-visible { outline: 2px solid var(--accent-8); outline-offset: 1px; }
+
+.pii-source,
+.pii-findings,
+.pii-preview {
+  overflow: hidden;
+  border: 1px solid var(--pii-line);
+  border-radius: 12px;
+  background: var(--pii-panel);
+}
+
+.pii-source > header,
+.pii-findings > header,
+.pii-preview > header,
+.pii-preview > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+}
+
+.pii-source header > div,
+.pii-findings header > div,
+.pii-preview header > div { display: grid; gap: 3px; }
+.pii-app header span,
+.pii-app footer,
+.pii-column span { color: var(--pii-muted); font-size: 12px; }
+
+.pii-source textarea {
+  display: block;
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  padding: 13px 14px;
+  border: 0;
+  border-block: 1px solid var(--pii-line);
+  outline: 0;
+  color: var(--gray-12);
+  background: var(--gray-a2);
+  font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.pii-source > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 14px;
+}
+
+.pii-source .is-error { color: var(--red-11); }
+.pii-findings > header,
+.pii-preview > header { border-bottom: 1px solid var(--pii-line); }
+
+.pii-count,
+.pii-ready {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  color: var(--green-11);
+  background: var(--green-a3);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.pii-policy {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(130px, .7fr) 190px;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--pii-line);
+}
+
+.pii-policy:last-child { border-bottom: 0; }
+.pii-column { display: grid; gap: 3px; min-width: 0; }
+.pii-column strong { overflow: hidden; text-overflow: ellipsis; }
+.pii-samples { color: var(--pii-muted); font-size: 12px; }
+.pii-policy select { width: 100%; padding: 0 9px; }
+
+.pii-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 13px;
+  border: 1px solid var(--amber-a6);
+  border-radius: 10px;
+  color: var(--amber-11);
+  background: var(--amber-a2);
+  font-size: 12px;
+}
+
+.pii-warning svg { flex: 0 0 auto; }
+.pii-empty { padding: 30px 18px; color: var(--pii-muted); text-align: center; font-size: 13px; }
+.pii-table-wrap { max-height: 430px; overflow: auto; }
+.pii-preview table { width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 12px; }
+.pii-preview th,
+.pii-preview td {
+  max-width: 280px;
+  overflow: hidden;
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--pii-line);
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.pii-preview th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: var(--pii-muted);
+  background: var(--gray-3);
+  font-size: 11px;
+}
+
+.pii-preview td.is-changed {
+  color: var(--accent-11);
+  background: var(--accent-a2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.pii-preview > footer { border-top: 1px solid var(--pii-line); }
+.pii-app .pii-primary { border-color: var(--accent-9); color: white; background: var(--accent-9); }
+.pii-app .pii-primary:hover:not(:disabled) { background: var(--accent-10); }
+
+@media (max-width: 700px) {
+  .pii-policy { grid-template-columns: 1fr; }
+  .pii-source > header,
+  .pii-findings > header,
+  .pii-preview > header,
+  .pii-preview > footer { align-items: stretch; flex-direction: column; }
+  .pii-source > footer { flex-direction: column; }
+}

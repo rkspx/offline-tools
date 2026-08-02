@@ -1,0 +1,308 @@
+.bc-app {
+  --bc-line: var(--gray-a6);
+  --bc-panel: var(--color-panel-solid);
+  --bc-muted: var(--gray-10);
+  display: grid;
+  gap: 14px;
+  color: var(--gray-12);
+}
+
+.bc-app button,
+.bc-app input,
+.bc-app select,
+.bc-app textarea {
+  font: inherit;
+}
+
+.bc-app button,
+.bc-app input,
+.bc-app select {
+  min-height: 36px;
+  border: 1px solid var(--bc-line);
+  border-radius: 8px;
+  color: var(--gray-12);
+  background: var(--bc-panel);
+}
+
+.bc-app button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.bc-app button:hover:not(:disabled) {
+  background: var(--gray-a3);
+}
+
+.bc-app button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.bc-app button:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.bc-app button:focus-visible,
+.bc-app input:focus-visible,
+.bc-app select:focus-visible,
+.bc-app textarea:focus-visible {
+  outline: 2px solid var(--accent-8);
+  outline-offset: 1px;
+}
+
+.bc-source,
+.bc-mappings,
+.bc-preview {
+  overflow: hidden;
+  border: 1px solid var(--bc-line);
+  border-radius: 12px;
+  background: var(--bc-panel);
+}
+
+.bc-source > header,
+.bc-mappings > header,
+.bc-preview > header,
+.bc-preview > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+}
+
+.bc-source header > div,
+.bc-mappings header > div,
+.bc-preview header > div:first-child,
+.bc-rates > div {
+  display: grid;
+  gap: 3px;
+}
+
+.bc-app header span,
+.bc-app footer,
+.bc-rates span {
+  color: var(--bc-muted);
+  font-size: 12px;
+}
+
+.bc-source textarea {
+  display: block;
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  padding: 13px 14px;
+  border: 0;
+  border-top: 1px solid var(--bc-line);
+  border-bottom: 1px solid var(--bc-line);
+  outline: 0;
+  color: var(--gray-12);
+  background: var(--gray-a2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.bc-source > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 14px;
+}
+
+.bc-error {
+  color: var(--red-11);
+}
+
+.bc-mappings > header,
+.bc-preview > header {
+  border-bottom: 1px solid var(--bc-line);
+}
+
+.bc-map {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.2fr 1.2fr 1.1fr 38px;
+  align-items: end;
+  gap: 9px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--bc-line);
+}
+
+.bc-map:last-child {
+  border-bottom: 0;
+}
+
+.bc-map label {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  color: var(--bc-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.bc-map select,
+.bc-map input {
+  width: 100%;
+  min-width: 0;
+  padding: 0 9px;
+  color: var(--gray-12);
+}
+
+.bc-map .bc-remove {
+  width: 38px;
+  padding: 0;
+  color: var(--red-11);
+}
+
+.bc-empty {
+  padding: 30px 18px;
+  color: var(--bc-muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+.bc-rates {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 14px;
+  border: 1px solid var(--amber-a6);
+  border-radius: 12px;
+  background: var(--amber-a2);
+}
+
+.bc-rates strong {
+  color: var(--amber-12);
+}
+
+.bc-rates span {
+  color: var(--amber-11);
+}
+
+.bc-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.bc-status span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+.bc-status .is-error {
+  color: var(--red-11);
+  background: var(--red-a3);
+}
+
+.bc-status .is-warning {
+  color: var(--amber-11);
+  background: var(--amber-a3);
+}
+
+.bc-status .is-ok {
+  color: var(--green-11);
+  background: var(--green-a3);
+}
+
+.bc-table-wrap {
+  max-height: 420px;
+  overflow: auto;
+}
+
+.bc-preview table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.bc-preview th,
+.bc-preview td {
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--bc-line);
+  text-align: left;
+}
+
+.bc-preview th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: var(--bc-muted);
+  background: var(--gray-3);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.bc-preview tbody tr:hover {
+  background: var(--gray-a2);
+}
+
+.bc-preview tr.has-error {
+  background: var(--red-a2);
+}
+
+.bc-preview tr.has-warning {
+  background: var(--amber-a2);
+}
+
+.bc-result-cell {
+  max-width: 360px;
+  overflow: hidden;
+  color: var(--bc-muted);
+  text-overflow: ellipsis;
+}
+
+.bc-preview > footer {
+  border-top: 1px solid var(--bc-line);
+}
+
+.bc-app .bc-primary {
+  border-color: var(--accent-9);
+  color: white;
+  background: var(--accent-9);
+}
+
+.bc-app .bc-primary:hover:not(:disabled) {
+  background: var(--accent-10);
+}
+
+@media (max-width: 900px) {
+  .bc-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bc-map .bc-remove {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .bc-source > header,
+  .bc-mappings > header,
+  .bc-preview > header,
+  .bc-preview > footer,
+  .bc-rates {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .bc-map {
+    grid-template-columns: 1fr;
+  }
+
+  .bc-source > footer {
+    flex-direction: column;
+  }
+}

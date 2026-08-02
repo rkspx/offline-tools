@@ -1,0 +1,150 @@
+.sam-app {
+  --sam-line: var(--gray-a6);
+  --sam-surface: var(--color-panel-solid);
+  --sam-muted: var(--gray-10);
+  display: grid;
+  gap: 12px;
+  color: var(--gray-12);
+}
+
+.sam-app button,
+.sam-app input,
+.sam-app select,
+.sam-app textarea { font: inherit; }
+
+.sam-app button,
+.sam-app input,
+.sam-app select {
+  min-height: 36px;
+  border: 1px solid var(--sam-line);
+  border-radius: 7px;
+  color: var(--gray-12);
+  background: var(--sam-surface);
+}
+
+.sam-app button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sam-app button:hover { background: var(--gray-a3); }
+.sam-app button:active { transform: translateY(1px); }
+.sam-app button:focus-visible,
+.sam-app input:focus-visible,
+.sam-app select:focus-visible,
+.sam-app textarea:focus-visible { outline: 2px solid var(--accent-8); outline-offset: 1px; }
+
+.sam-topbar,
+.sam-console,
+.sam-data,
+.sam-output,
+.sam-config {
+  border: 1px solid var(--sam-line);
+  border-radius: 10px;
+  background: var(--sam-surface);
+}
+
+.sam-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+}
+
+.sam-topbar > div,
+.sam-config > header,
+.sam-console header > div,
+.sam-data header > div { display: grid; gap: 3px; }
+
+.sam-app header span,
+.sam-topbar span { color: var(--sam-muted); font-size: 12px; }
+
+.sam-grid { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 12px; align-items: start; }
+.sam-config { display: grid; gap: 13px; padding: 14px; }
+.sam-config > header { padding-bottom: 4px; border-bottom: 1px solid var(--sam-line); }
+
+.sam-config label {
+  display: grid;
+  gap: 6px;
+  color: var(--sam-muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.sam-config input,
+.sam-config select { width: 100%; padding: 0 9px; }
+.sam-main { display: grid; min-width: 0; gap: 12px; }
+
+.sam-scope-note,
+.sam-query-help {
+  display: grid;
+  gap: 7px;
+  padding: 11px;
+  border-radius: 7px;
+  background: var(--gray-a2);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.sam-scope-note { border-left: 3px solid var(--amber-9); }
+.sam-scope-note p { margin: 0; color: var(--sam-muted); }
+.sam-query-help code { color: var(--gray-11); overflow-wrap: anywhere; }
+
+.sam-console > header,
+.sam-data > header,
+.sam-output > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 13px;
+  border-bottom: 1px solid var(--sam-line);
+}
+
+.sam-status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+}
+
+.sam-status.status-ok { color: var(--green-11); background: var(--green-a3); }
+.sam-status.status-error { color: var(--red-11); background: var(--red-a3); }
+
+.sam-request { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; padding: 11px 13px; border-bottom: 1px solid var(--sam-line); }
+.sam-request > span { display: grid; place-items: center; padding: 0 9px; border-radius: 6px; color: var(--green-11); background: var(--green-a3); font: 700 11px ui-monospace, monospace; }
+.sam-request input { min-width: 0; padding: 0 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+.sam-request button { border-color: var(--accent-9); color: white; background: var(--accent-9); }
+.sam-request button:hover { background: var(--accent-10); }
+
+.sam-response-meta { display: flex; flex-wrap: wrap; gap: 5px 12px; padding: 8px 13px; color: var(--sam-muted); background: var(--gray-a2); font: 10px ui-monospace, monospace; }
+.sam-console pre { min-height: 210px; max-height: 370px; overflow: auto; margin: 0; padding: 14px; color: var(--gray-12); font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.sam-table-wrap { overflow: auto; max-height: 300px; }
+.sam-data table { width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 12px; }
+.sam-data th, .sam-data td { padding: 8px 10px; border-bottom: 1px solid var(--sam-line); text-align: left; }
+.sam-data th { position: sticky; top: 0; color: var(--sam-muted); background: var(--gray-3); font-size: 11px; }
+.sam-data tbody tr:hover { background: var(--gray-a2); }
+.sam-empty { padding: 28px; color: var(--sam-muted); text-align: center; font-size: 12px; }
+.sam-tabs { display: flex; gap: 5px; }
+.sam-tabs button { min-height: 30px; border: 0; background: transparent; }
+.sam-tabs button.active { color: var(--accent-11); background: var(--accent-a3); }
+.sam-output textarea { display: block; width: 100%; min-height: 230px; resize: vertical; padding: 13px; border: 0; border-radius: 0 0 10px 10px; color: var(--gray-12); background: var(--gray-a2); font: 11px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+@media (max-width: 820px) {
+  .sam-grid { grid-template-columns: 1fr; }
+  .sam-config { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sam-config > header, .sam-scope-note, .sam-query-help { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .sam-topbar, .sam-console > header, .sam-data > header, .sam-output > header { align-items: stretch; flex-direction: column; }
+  .sam-config { grid-template-columns: 1fr; }
+  .sam-request { grid-template-columns: auto 1fr; }
+  .sam-request button { grid-column: 1 / -1; }
+}

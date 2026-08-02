@@ -1,0 +1,250 @@
+.log-extractor {
+  display: grid;
+  gap: 16px;
+}
+
+.log-extractor-input,
+.log-rules,
+.log-results {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--gray-a6);
+  border-radius: 12px;
+  background: var(--gray-a2);
+}
+
+.log-extractor-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.log-extractor-title > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.log-extractor-input textarea {
+  width: 100%;
+  min-height: 230px;
+  padding: 13px;
+  resize: vertical;
+  border: 1px solid var(--gray-a7);
+  border-radius: 8px;
+  color: var(--gray-12);
+  background: var(--color-background);
+  font: 12px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.log-extractor-input textarea:focus,
+.log-rule input:focus {
+  border-color: var(--accent-8);
+  outline: 2px solid var(--accent-a4);
+}
+
+.log-extractor-input-footer,
+.log-builtins,
+.log-export-actions,
+.log-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.log-extractor-input-footer {
+  justify-content: space-between;
+}
+
+.log-extractor-input-footer button {
+  border: 0;
+  color: var(--gray-11);
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.log-rule-list {
+  display: grid;
+  gap: 8px;
+}
+
+.log-rule {
+  display: grid;
+  grid-template-columns: auto minmax(100px, 0.7fr) minmax(180px, 2fr) 70px auto;
+  align-items: end;
+  gap: 9px;
+  padding: 10px;
+  border: 1px solid var(--gray-a5);
+  border-radius: 9px;
+  background: var(--color-background);
+}
+
+.log-rule label {
+  display: grid;
+  gap: 5px;
+  color: var(--gray-11);
+  font-size: 11px;
+}
+
+.log-rule input:not([type="checkbox"]) {
+  width: 100%;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: 1px solid var(--gray-a7);
+  border-radius: 6px;
+  color: var(--gray-12);
+  background: var(--color-background);
+}
+
+.log-rule-pattern input,
+.log-rule-flags {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.log-rule-toggle {
+  align-self: center;
+}
+
+.log-rule-error {
+  grid-column: 2 / -1;
+  color: var(--red-10);
+  font-size: 11px;
+}
+
+.log-inline-empty {
+  padding: 16px;
+  color: var(--gray-10);
+  text-align: center;
+  font-size: 12px;
+}
+
+.log-stats span {
+  padding: 7px 9px;
+  border-radius: 7px;
+  color: var(--gray-11);
+  background: var(--gray-a3);
+  font-size: 11px;
+}
+
+.log-stats strong {
+  color: var(--gray-12);
+}
+
+.log-table-wrap {
+  max-height: 560px;
+  overflow: auto;
+  border: 1px solid var(--gray-a5);
+  border-radius: 8px;
+}
+
+.log-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.log-table-wrap th,
+.log-table-wrap td {
+  max-width: 280px;
+  padding: 8px 9px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--gray-a4);
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.log-table-wrap th {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  color: var(--gray-11);
+  background: var(--gray-3);
+}
+
+.log-pattern-value {
+  color: var(--accent-11);
+}
+
+.log-pattern-muted {
+  color: var(--gray-8);
+}
+
+.log-level {
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.log-level.is-error,
+.log-level.is-critical,
+.log-level.is-fatal {
+  color: var(--red-10);
+}
+
+.log-level.is-warn,
+.log-level.is-warning {
+  color: var(--amber-10);
+}
+
+.log-level.is-info {
+  color: var(--blue-10);
+}
+
+.log-source {
+  color: var(--gray-10);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.log-table-wrap details summary {
+  color: var(--accent-11);
+  cursor: pointer;
+}
+
+.log-table-wrap details pre {
+  max-width: 420px;
+  margin: 8px 0 0;
+  color: var(--gray-12);
+  white-space: pre-wrap;
+}
+
+.log-empty {
+  display: grid;
+  min-height: 210px;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 30px;
+  border: 1px dashed var(--gray-a6);
+  border-radius: 9px;
+  color: var(--gray-10);
+  text-align: center;
+  font-size: 13px;
+}
+
+.log-empty svg {
+  color: var(--accent-10);
+}
+
+.log-empty strong {
+  color: var(--gray-12);
+}
+
+@media (max-width: 760px) {
+  .log-extractor-title {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .log-rule {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .log-rule-pattern,
+  .log-rule-error {
+    grid-column: 2 / -1;
+  }
+}

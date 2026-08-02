@@ -1,0 +1,352 @@
+.sd-app {
+  --sd-line: var(--gray-a6);
+  --sd-panel: var(--color-panel-solid);
+  --sd-muted: var(--gray-10);
+  display: grid;
+  gap: 14px;
+  color: var(--gray-12);
+}
+
+.sd-app button,
+.sd-app select,
+.sd-app textarea {
+  font: inherit;
+}
+
+.sd-app button,
+.sd-app select {
+  min-height: 34px;
+  border: 1px solid var(--sd-line);
+  border-radius: 8px;
+  color: var(--gray-12);
+  background: var(--sd-panel);
+}
+
+.sd-app button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 11px;
+  cursor: pointer;
+}
+
+.sd-app button:hover {
+  background: var(--gray-a3);
+}
+
+.sd-app button:active {
+  transform: translateY(1px);
+}
+
+.sd-app button:focus-visible,
+.sd-app select:focus-visible,
+.sd-app textarea:focus-visible {
+  outline: 2px solid var(--accent-8);
+  outline-offset: 1px;
+}
+
+.sd-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sd-editor {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--sd-line);
+  border-radius: 12px;
+  background: var(--sd-panel);
+}
+
+.sd-editor > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--sd-line);
+}
+
+.sd-editor > header > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+
+.sd-editor small,
+.sd-export span {
+  color: var(--sd-muted);
+  font-size: 12px;
+}
+
+.sd-editor-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.sd-editor-actions select {
+  padding: 0 28px 0 9px;
+}
+
+.sd-editor textarea {
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  resize: vertical;
+  padding: 14px;
+  border: 0;
+  outline: 0;
+  color: var(--gray-12);
+  background: transparent;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  tab-size: 2;
+}
+
+.sd-error,
+.sd-empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 28px;
+  border: 1px solid var(--red-a6);
+  border-radius: 12px;
+  color: var(--red-11);
+  background: var(--red-a2);
+  text-align: center;
+}
+
+.sd-empty {
+  border-color: var(--green-a6);
+  color: var(--green-11);
+  background: var(--green-a2);
+}
+
+.sd-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 6px;
+  border: 1px solid var(--sd-line);
+  border-radius: 12px;
+  background: var(--gray-a2);
+}
+
+.sd-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  margin-right: auto;
+}
+
+.sd-summary svg {
+  color: var(--accent-10);
+}
+
+.sd-summary span {
+  color: var(--sd-muted);
+  font-size: 13px;
+}
+
+.sd-segmented,
+.sd-bulk {
+  display: flex;
+  gap: 4px;
+}
+
+.sd-segmented button.is-active {
+  border-color: var(--accent-a7);
+  color: var(--accent-11);
+  background: var(--accent-a3);
+}
+
+.sd-changes {
+  display: grid;
+  gap: 10px;
+}
+
+.sd-change {
+  overflow: hidden;
+  border: 1px solid var(--sd-line);
+  border-left: 3px solid var(--accent-8);
+  border-radius: 12px;
+  background: var(--sd-panel);
+}
+
+.sd-change.sd-added { border-left-color: var(--green-9); }
+.sd-change.sd-removed { border-left-color: var(--red-9); }
+.sd-change.sd-type { border-left-color: var(--amber-9); }
+
+.sd-change > header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--sd-line);
+}
+
+.sd-change header code {
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+
+.sd-change header small {
+  margin-left: auto;
+  color: var(--sd-muted);
+  font-size: 11px;
+}
+
+.sd-kind {
+  padding: 3px 7px;
+  border-radius: 6px;
+  color: var(--accent-11);
+  background: var(--accent-a3);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.sd-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sd-choice-grid > button {
+  display: grid;
+  justify-content: stretch;
+  min-width: 0;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+}
+
+.sd-choice-grid > button + button {
+  border-left: 1px solid var(--sd-line);
+}
+
+.sd-choice-grid > button.is-selected {
+  box-shadow: inset 0 0 0 2px var(--accent-8);
+  background: var(--accent-a2);
+}
+
+.sd-choice-grid button span {
+  padding: 8px 11px 0;
+  color: var(--sd-muted);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.sd-choice-grid pre {
+  min-height: 40px;
+  max-height: 150px;
+  margin: 0;
+  padding: 8px 11px 11px;
+  overflow: auto;
+  color: var(--gray-12);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.sd-tree {
+  padding: 14px 16px;
+  border: 1px solid var(--sd-line);
+  border-radius: 12px;
+  background: var(--sd-panel);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}
+
+.sd-tree-node summary {
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.sd-tree-node summary small {
+  color: var(--sd-muted);
+}
+
+.sd-tree-node > div {
+  padding-left: 18px;
+  border-left: 1px solid var(--sd-line);
+}
+
+.sd-tree-leaf {
+  display: flex;
+  gap: 12px;
+  padding: 5px 0;
+}
+
+.sd-tree-leaf span {
+  color: var(--accent-11);
+}
+
+.sd-tree-leaf code {
+  overflow-wrap: anywhere;
+}
+
+.sd-export {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--sd-line);
+  border-radius: 12px;
+  background: var(--gray-a2);
+}
+
+.sd-export > div {
+  display: grid;
+  gap: 3px;
+}
+
+.sd-export select {
+  padding: 0 28px 0 10px;
+}
+
+.sd-app .sd-primary {
+  border-color: var(--accent-9);
+  color: white;
+  background: var(--accent-9);
+}
+
+.sd-app .sd-primary:hover {
+  background: var(--accent-10);
+}
+
+@media (max-width: 767px) {
+  .sd-input-grid,
+  .sd-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sd-choice-grid > button + button {
+    border-top: 1px solid var(--sd-line);
+    border-left: 0;
+  }
+
+  .sd-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .sd-summary {
+    width: 100%;
+  }
+
+  .sd-export {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sd-export > div {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,187 @@
+.ae-app {
+  --ae-line: var(--gray-a6);
+  --ae-panel: var(--color-panel-solid);
+  display: grid;
+  gap: 14px;
+  color: var(--gray-12);
+}
+
+.ae-app button,
+.ae-app input { font: inherit; }
+
+.ae-app button,
+.ae-app input[type="number"] {
+  min-height: 38px;
+  border: 1px solid var(--ae-line);
+  border-radius: 8px;
+  color: var(--gray-12);
+  background: var(--ae-panel);
+}
+
+.ae-app button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 13px;
+  cursor: pointer;
+}
+
+.ae-app button:hover:not(:disabled) { background: var(--gray-a3); }
+.ae-app button:disabled { cursor: not-allowed; opacity: .5; }
+.ae-app button:focus-visible,
+.ae-app input:focus-visible { outline: 2px solid var(--accent-8); outline-offset: 2px; }
+
+.ae-upload,
+.ae-editor,
+.ae-effects,
+.ae-compare {
+  overflow: hidden;
+  border: 1px solid var(--ae-line);
+  border-radius: 12px;
+  background: var(--ae-panel);
+}
+
+.ae-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px;
+}
+
+.ae-upload > div,
+.ae-editor header > div,
+.ae-effects header > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.ae-app span,
+.ae-app small { color: var(--gray-10); font-size: 12px; }
+
+.ae-editor header,
+.ae-effects header,
+.ae-editor footer,
+.ae-effects footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+}
+
+.ae-editor header,
+.ae-effects header { border-bottom: 1px solid var(--ae-line); }
+.ae-editor footer,
+.ae-effects footer { border-top: 1px solid var(--ae-line); }
+
+.ae-waveform {
+  display: block;
+  width: 100%;
+  height: 180px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.ae-editor footer { justify-content: flex-start; }
+.ae-editor footer label { display: flex; align-items: center; gap: 7px; color: var(--gray-10); font-size: 11px; font-weight: 650; }
+.ae-editor input[type="number"] { width: 92px; padding: 0 8px; }
+
+.ae-effect-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ae-effect-grid > label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 7px 12px;
+  min-height: 88px;
+  align-content: center;
+  padding: 14px;
+  border-bottom: 1px solid var(--ae-line);
+  color: var(--gray-11);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.ae-effect-grid > label:nth-child(odd) { border-right: 1px solid var(--ae-line); }
+.ae-effect-grid input[type="range"] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent-9); }
+.ae-effect-grid output { color: var(--gray-10); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.ae-effect-grid .ae-switch {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.ae-switch input { width: 17px; height: 17px; accent-color: var(--accent-9); }
+.ae-switch span { display: grid; gap: 3px; }
+.ae-switch strong { color: var(--gray-12); font-size: 12px; }
+.ae-switch small { font-weight: 400; }
+
+.ae-effects footer > span { max-width: 580px; }
+.ae-app .ae-primary { border-color: var(--accent-9); color: white; background: var(--accent-9); }
+.ae-app .ae-primary:hover:not(:disabled) { background: var(--accent-10); }
+
+.ae-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ae-compare > div {
+  display: grid;
+  min-width: 0;
+  gap: 10px;
+  padding: 14px;
+}
+
+.ae-compare > div:first-child { border-right: 1px solid var(--ae-line); }
+.ae-compare audio { width: 100%; height: 38px; }
+.ae-compare .ae-export {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid var(--ae-line);
+}
+
+.ae-empty {
+  padding: 64px 20px;
+  border: 1px dashed var(--ae-line);
+  border-radius: 12px;
+  color: var(--gray-10);
+  text-align: center;
+  background: var(--gray-a2);
+}
+
+.ae-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 13px;
+  border: 1px solid var(--red-a6);
+  border-radius: 10px;
+  color: var(--red-11);
+  background: var(--red-a2);
+  font-size: 12px;
+}
+
+.ae-error svg { flex: none; }
+
+@media (max-width: 700px) {
+  .ae-effect-grid,
+  .ae-compare { grid-template-columns: 1fr; }
+  .ae-effect-grid > label:nth-child(odd),
+  .ae-compare > div:first-child { border-right: 0; }
+  .ae-compare .ae-export { grid-column: 1; }
+}
+
+@media (max-width: 560px) {
+  .ae-upload,
+  .ae-editor header,
+  .ae-editor footer,
+  .ae-effects footer { align-items: stretch; flex-direction: column; }
+}

@@ -1,0 +1,235 @@
+.sqlite-analyzer {
+  --sa-ink: #17221c;
+  --sa-muted: #66736c;
+  --sa-line: #d8e1db;
+  --sa-soft: #f1f5f2;
+  --sa-paper: #fbfcfb;
+  --sa-accent: #287a4e;
+  --sa-accent-soft: #dcefe3;
+  color: var(--sa-ink);
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.sqlite-analyzer * { box-sizing: border-box; }
+.sqlite-analyzer button, .sqlite-analyzer input, .sqlite-analyzer select, .sqlite-analyzer textarea { font: inherit; }
+.sqlite-analyzer h2, .sqlite-analyzer p { margin: 0; }
+
+.sqlite-header {
+  align-items: center;
+  background: linear-gradient(120deg, #e8f4ec, #f4f7f5 62%);
+  border: 1px solid #d3e6d9;
+  border-radius: 16px;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  min-height: 104px;
+  padding: 22px 26px;
+}
+
+.sqlite-title { align-items: center; display: flex; gap: 10px; }
+.sqlite-title svg { color: var(--sa-accent); }
+.sqlite-title h2 { font-size: clamp(21px, 3vw, 30px); letter-spacing: -.035em; }
+.sqlite-header p { color: #53635a; margin-top: 6px; }
+
+.sqlite-engine-status {
+  align-items: center;
+  background: rgb(255 255 255 / .72);
+  border: 1px solid rgb(40 122 78 / .17);
+  border-radius: 12px;
+  display: flex;
+  flex: 0 1 310px;
+  gap: 10px;
+  min-width: 220px;
+  padding: 10px 13px;
+}
+
+.sqlite-engine-status > span {
+  background: #2d8d58;
+  border: 3px solid #cde7d6;
+  border-radius: 50%;
+  flex: 0 0 12px;
+  height: 12px;
+}
+
+.sqlite-engine-status > span.is-busy {
+  animation: sqlite-pulse 1.2s ease-in-out infinite;
+  background: #bd7426;
+  border-color: #f3dfc6;
+}
+
+.sqlite-engine-status div { display: grid; min-width: 0; }
+.sqlite-engine-status strong { font-size: 12px; }
+.sqlite-engine-status small { color: var(--sa-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.sqlite-workspace {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 650px;
+}
+
+.sqlite-sidebar, .sqlite-editor-panel, .sqlite-results-panel {
+  background: var(--sa-paper);
+  border: 1px solid var(--sa-line);
+  border-radius: 14px;
+}
+
+.sqlite-sidebar { display: flex; flex-direction: column; min-width: 0; padding: 14px; }
+.sqlite-dropzone {
+  align-items: center;
+  background: var(--sa-soft);
+  border: 1px dashed #aabbb0;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  min-height: 132px;
+  padding: 16px;
+  text-align: center;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+.sqlite-dropzone:hover, .sqlite-dropzone.is-dragging { background: var(--sa-accent-soft); border-color: var(--sa-accent); transform: translateY(-1px); }
+.sqlite-dropzone.is-disabled { cursor: wait; opacity: .58; transform: none; }
+.sqlite-dropzone svg { color: var(--sa-accent); }
+.sqlite-dropzone strong { font-size: 13px; }
+.sqlite-dropzone span { color: var(--sa-muted); font-size: 11px; }
+.sqlite-dropzone input { height: 1px; opacity: 0; overflow: hidden; position: absolute; width: 1px; }
+.sqlite-dropzone:focus-within { outline: 3px solid rgb(40 122 78 / .28); outline-offset: 2px; }
+
+.sqlite-progress { display: grid; gap: 6px; margin-top: 10px; }
+.sqlite-progress div { display: flex; font-size: 11px; justify-content: space-between; }
+.sqlite-progress progress { accent-color: var(--sa-accent); height: 7px; width: 100%; }
+.sqlite-supported { display: flex; gap: 7px; margin: 10px 0 14px; }
+.sqlite-supported span { align-items: center; background: #e9efeb; border-radius: 7px; color: #53635a; display: flex; font-size: 10px; font-weight: 700; gap: 4px; padding: 5px 7px; }
+
+.sqlite-schema-heading { align-items: center; border-top: 1px solid var(--sa-line); display: flex; justify-content: space-between; padding: 13px 2px 9px; }
+.sqlite-schema-heading strong { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.sqlite-schema-heading span { color: var(--sa-muted); font-size: 11px; }
+.sqlite-schema { display: grid; gap: 7px; max-height: 330px; overflow: auto; }
+.sqlite-schema details { background: var(--sa-soft); border-radius: 9px; padding: 9px; }
+.sqlite-schema summary { align-items: center; cursor: pointer; display: grid; font-size: 12px; gap: 6px; grid-template-columns: auto minmax(0, 1fr) auto; list-style: none; }
+.sqlite-schema summary::-webkit-details-marker { display: none; }
+.sqlite-schema summary svg { color: var(--sa-accent); }
+.sqlite-schema summary span { font-weight: 700; overflow: hidden; text-overflow: ellipsis; }
+.sqlite-schema summary small { color: var(--sa-muted); }
+.sqlite-schema details > button { background: none; border: 0; color: var(--sa-accent); cursor: pointer; font-size: 10px; font-weight: 700; margin: 8px 0 3px 20px; padding: 0; }
+.sqlite-schema dl { display: grid; gap: 4px; margin: 6px 0 0 20px; }
+.sqlite-schema dl div { display: grid; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; gap: 5px; grid-template-columns: minmax(0, 1fr) auto; }
+.sqlite-schema dt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sqlite-schema dd { color: var(--sa-muted); margin: 0; }
+.sqlite-schema-empty { color: var(--sa-muted); font-size: 11px; line-height: 1.5; padding: 16px 8px; text-align: center; }
+.sqlite-limitation { border-top: 1px solid var(--sa-line); color: var(--sa-muted); font-size: 10px; line-height: 1.45; margin-top: auto !important; padding: 12px 2px 0; }
+
+.sqlite-main { display: grid; gap: 16px; grid-template-rows: auto minmax(390px, 1fr); min-width: 0; }
+.sqlite-editor-panel, .sqlite-results-panel { min-width: 0; overflow: hidden; }
+.sqlite-panel-head {
+  align-items: center;
+  border-bottom: 1px solid var(--sa-line);
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 10px 14px;
+}
+.sqlite-panel-head > div:first-child:not(.sqlite-view-tabs) { display: grid; gap: 2px; }
+.sqlite-panel-head strong { font-size: 13px; }
+.sqlite-panel-head span { color: var(--sa-muted); font-size: 10px; }
+.sqlite-editor-panel textarea {
+  background: #152019;
+  border: 0;
+  border-radius: 0;
+  color: #d8f6e2;
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  min-height: 150px;
+  outline: none;
+  padding: 17px 19px;
+  resize: vertical;
+  width: 100%;
+}
+.sqlite-editor-panel textarea:focus { box-shadow: inset 0 0 0 2px #438a62; }
+.sqlite-safety { background: #e9f0eb; color: #53635a; font-size: 10px; padding: 7px 18px; }
+
+.sqlite-results-panel { display: flex; flex-direction: column; }
+.sqlite-results-head { padding-left: 8px; }
+.sqlite-view-tabs { align-self: stretch; display: flex; }
+.sqlite-view-tabs button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--sa-muted);
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  gap: 6px;
+  padding: 0 11px;
+}
+.sqlite-view-tabs button.is-active { border-bottom-color: var(--sa-accent); color: var(--sa-ink); font-weight: 700; }
+.sqlite-view-tabs button:disabled { cursor: not-allowed; opacity: .4; }
+.sqlite-export-actions { align-items: center; display: flex !important; flex-direction: row !important; gap: 7px !important; }
+.sqlite-export-actions > span { margin-right: 4px; }
+.sqlite-empty-result { align-items: center; color: var(--sa-muted); display: flex; flex: 1; flex-direction: column; gap: 7px; justify-content: center; min-height: 330px; padding: 30px; text-align: center; }
+.sqlite-empty-result svg { color: #82a790; }
+.sqlite-empty-result strong { color: var(--sa-ink); font-size: 14px; }
+.sqlite-empty-result span { font-size: 11px; }
+
+.sqlite-table-wrap { flex: 1; max-height: 510px; overflow: auto; }
+.sqlite-table-wrap table { border-collapse: separate; border-spacing: 0; font-size: 11px; min-width: 100%; width: max-content; }
+.sqlite-table-wrap th, .sqlite-table-wrap td { border-bottom: 1px solid #e1e7e3; border-right: 1px solid #edf0ee; max-width: 360px; overflow: hidden; padding: 8px 10px; text-align: left; text-overflow: ellipsis; white-space: nowrap; }
+.sqlite-table-wrap th { background: #edf3ef; color: #46534c; font-size: 10px; position: sticky; top: 0; z-index: 1; }
+.sqlite-table-wrap th:first-child { left: 0; z-index: 2; }
+.sqlite-table-wrap td { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.sqlite-table-wrap td:first-child { background: #f5f7f5; color: #849088; left: 0; position: sticky; }
+.sqlite-table-wrap tbody tr:hover td { background: #f0f7f2; }
+.sqlite-null { color: #9a6b75; font-style: italic; }
+
+.sqlite-chart-builder { display: flex; flex: 1; flex-direction: column; min-height: 0; }
+.sqlite-chart-controls { align-items: end; background: #f4f7f5; border-bottom: 1px solid var(--sa-line); display: flex; gap: 10px; padding: 12px 15px; }
+.sqlite-chart-controls label { color: var(--sa-muted); display: grid; font-size: 10px; font-weight: 700; gap: 5px; }
+.sqlite-chart-controls select { background: white; border: 1px solid #cbd7cf; border-radius: 7px; color: var(--sa-ink); min-width: 135px; padding: 7px 28px 7px 9px; }
+.sqlite-chart-wrap { align-items: center; display: flex; flex: 1; justify-content: center; min-height: 330px; overflow: auto; padding: 18px; }
+.sqlite-chart { height: auto; max-height: 390px; min-width: 560px; width: 100%; }
+.sqlite-chart-axis { stroke: #aebbb3; stroke-width: 1; }
+.sqlite-chart-tick, .sqlite-chart-label { fill: #67746c; font: 10px ui-monospace, monospace; }
+.sqlite-chart-bar { fill: #39845a; }
+.sqlite-chart-line { fill: none; stroke: #39845a; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
+.sqlite-chart-dot { fill: #f8fbf9; stroke: #287a4e; stroke-width: 2; }
+.sqlite-chart-empty { color: var(--sa-muted); font-size: 12px; padding: 60px 20px; text-align: center; }
+
+@keyframes sqlite-pulse {
+  50% { opacity: .45; transform: scale(.82); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sqlite-engine-status > span.is-busy { animation: none; }
+  .sqlite-dropzone { transition: none; }
+}
+
+@media (max-width: 900px) {
+  .sqlite-workspace { grid-template-columns: 1fr; }
+  .sqlite-sidebar { display: grid; gap: 10px; grid-template-columns: minmax(190px, .7fr) minmax(250px, 1.3fr); }
+  .sqlite-dropzone { grid-row: span 2; }
+  .sqlite-supported { margin: 0; }
+  .sqlite-schema-heading { border-top: 0; padding: 0 2px; }
+  .sqlite-schema { max-height: 240px; }
+  .sqlite-limitation { grid-column: 1 / -1; margin-top: 0 !important; }
+}
+
+@media (max-width: 640px) {
+  .sqlite-header { align-items: stretch; flex-direction: column; }
+  .sqlite-engine-status { flex-basis: auto; min-width: 0; }
+  .sqlite-sidebar { display: flex; }
+  .sqlite-results-head { align-items: stretch; flex-direction: column; }
+  .sqlite-view-tabs { min-height: 42px; }
+  .sqlite-export-actions { flex-wrap: wrap; }
+  .sqlite-export-actions > span { flex-basis: 100%; }
+  .sqlite-chart-controls { align-items: stretch; flex-direction: column; }
+  .sqlite-chart-controls select { width: 100%; }
+}

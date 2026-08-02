@@ -1,0 +1,126 @@
+.dr-app {
+  --dr-line: var(--gray-a6);
+  display: grid;
+  gap: 14px;
+  color: var(--gray-12);
+}
+
+.dr-app button,
+.dr-app textarea { font: inherit; }
+.dr-app button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--dr-line);
+  border-radius: 8px;
+  color: var(--gray-12);
+  background: var(--color-panel-solid);
+  cursor: pointer;
+}
+.dr-app button:hover:not(:disabled) { background: var(--gray-a3); }
+.dr-app button:disabled { opacity: .5; cursor: not-allowed; }
+.dr-app button:focus-visible,
+.dr-app textarea:focus-visible { outline: 2px solid var(--accent-8); outline-offset: 2px; }
+
+.dr-notice {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--amber-a6);
+  border-radius: 10px;
+  color: var(--amber-12);
+  background: var(--amber-a2);
+}
+.dr-notice div { display: grid; gap: 3px; }
+.dr-notice span { font-size: 12px; line-height: 1.45; }
+
+.dr-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.dr-source {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--dr-line);
+  border-radius: 12px;
+  background: var(--color-panel-solid);
+}
+.dr-source header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--dr-line);
+}
+.dr-source header div { display: grid; gap: 2px; margin-right: auto; min-width: 0; }
+.dr-source small { overflow: hidden; color: var(--gray-10); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.dr-source textarea {
+  display: block;
+  width: 100%;
+  min-height: 210px;
+  padding: 13px;
+  resize: vertical;
+  border: 0;
+  color: var(--gray-12);
+  background: transparent;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.dr-error { margin: 0; padding: 8px 12px; color: var(--red-11); background: var(--red-a2); font-size: 12px; }
+
+.dr-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 9px 10px;
+  border: 1px solid var(--dr-line);
+  border-radius: 11px;
+  background: var(--gray-a2);
+}
+.dr-summary > div { display: flex; align-items: center; gap: 6px; }
+.dr-summary span { color: var(--gray-10); font-size: 12px; }
+.dr-summary .dr-added strong { color: var(--green-11); }
+.dr-summary .dr-removed strong { color: var(--red-11); }
+.dr-summary button { margin-left: auto; color: white; border-color: var(--accent-9); background: var(--accent-9); }
+
+.dr-empty {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  padding: 42px 20px;
+  border: 1px dashed var(--dr-line);
+  border-radius: 12px;
+  color: var(--gray-10);
+  text-align: center;
+}
+.dr-empty strong { color: var(--gray-12); }
+.dr-empty span { font-size: 12px; }
+
+.dr-results { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 12px; align-items: start; }
+.dr-redline,
+.dr-risks {
+  overflow: hidden;
+  border: 1px solid var(--dr-line);
+  border-radius: 12px;
+  background: var(--color-panel-solid);
+}
+.dr-redline > header,
+.dr-risks > header { display: flex; align-items: center; gap: 8px; padding: 11px 13px; border-bottom: 1px solid var(--dr-line); }
+.dr-redline > header span { margin-left: auto; color: var(--gray-10); font-size: 11px; }
+.dr-diff-text { min-height: 260px; max-height: 560px; padding: 18px; overflow: auto; white-space: pre-wrap; line-height: 1.7; overflow-wrap: anywhere; }
+.dr-diff-text .dr-added { color: var(--green-12); background: var(--green-a4); text-decoration: underline; text-decoration-color: var(--green-8); }
+.dr-diff-text .dr-removed { color: var(--red-11); background: var(--red-a3); text-decoration: line-through; }
+.dr-risks > header span { margin-left: auto; padding: 2px 7px; border-radius: 999px; background: var(--amber-a4); font-size: 11px; }
+.dr-risks article { padding: 12px 13px; border-bottom: 1px solid var(--dr-line); }
+.dr-risks article:last-child { border-bottom: 0; }
+.dr-risks p { margin: 5px 0; color: var(--gray-11); font-size: 12px; line-height: 1.45; }
+.dr-risks blockquote { margin: 8px 0 0; padding-left: 9px; border-left: 2px solid var(--amber-8); color: var(--gray-10); font-size: 11px; line-height: 1.4; }
+.dr-risks .dr-no-risks { margin: 0; padding: 16px 13px; }
+
+@media (max-width: 800px) {
+  .dr-sources,
+  .dr-results { grid-template-columns: 1fr; }
+  .dr-summary { flex-wrap: wrap; }
+  .dr-summary button { width: 100%; margin-left: 0; }
+}
