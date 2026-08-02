@@ -101,3 +101,13 @@ Detailed implementation notes live in each `src/tools/<registered-slug>/README.m
 ## Security tools
 
 The shared security scanner implements a deterministic YARA-compatible subset rather than libyara. Security, compliance, PII, and redaction results are heuristic and can miss relevant material. Never use a “no findings” result as proof of safety, legal compliance, or complete anonymization.
+
+## License
+
+Project-authored code is available under the
+[PolyForm Noncommercial License 1.0.0](./LICENSE.md). Commercial use is not
+permitted without a separate license from the licensor.
+
+Bundled third-party libraries and runtime assets, including FFmpeg, retain
+their own licenses. The PolyForm license does not replace or restrict those
+independent terms.
