@@ -105,9 +105,8 @@ The shared security scanner implements a deterministic YARA-compatible subset ra
 ## License
 
 Project-authored code is available under the
-[PolyForm Noncommercial License 1.0.0](./LICENSE.md). Commercial use is not
-permitted without a separate license from the licensor.
+[GNU General Public License version 3 or later](./LICENSE.md).
 
 Bundled third-party libraries and runtime assets, including FFmpeg, retain
-their own licenses. The PolyForm license does not replace or restrict those
+their own licenses. The GPL does not replace or restrict those
 independent terms.

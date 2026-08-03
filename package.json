@@ -18,7 +18,7 @@
     "utilities",
     "pwa"
   ],
-  "license": "PolyForm-Noncommercial-1.0.0",
+  "license": "GPL-3.0-or-later",
   "type": "module",
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.33.1-dev57.0",
